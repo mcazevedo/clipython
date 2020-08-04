@@ -43,13 +43,11 @@ async def distribute_work(url, requests, concurrency, results):
     for task in tasks:
         task.cancel()
 
-
-    print("----")
-    print(f"{concurrency} workers levou um total de {total_time:.2f} segundos para completar {len(results)} requisições")
+    return total_time
 
 
 def clipython(url, requests, concurrency):
     """ Ponto de entrada das requisicoes """
     results = []
-    asyncio.run(distribute_work(url, requests, concurrency, results))
-    print(results)
+    total_time = asyncio.run(distribute_work(url, requests, concurrency, results))
+    return (total_time, results)

@@ -97,3 +97,14 @@ class Results:
         2
         """
         return len([r for r in self.requests if r["status_code"] in range(200, 299)])
+
+
+    def request_per_minute(self) -> int:
+        """ Retorna o numero de requisicoes por minuto """
+
+        return round(60 * len(self.requests) / self.total_time)
+
+    def request_per_second(self) -> int:
+        """ Retorna o numero de requisicoes por segundo """
+
+        return round(len(self.requests) / self.total_time)
