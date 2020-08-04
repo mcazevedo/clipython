@@ -1,5 +1,7 @@
 import click
 
+from .http import clipython
+
 @click.command()
 @click.option("--requests", "-r", default=500, help="Numero de requisicoes a se fazer")
 @click.option("--concurrency", "-c", default=1, help="Numero de requisicoes concorrentes")
@@ -10,6 +12,7 @@ def cli(requests, concurrency, json_file, url):
     print(f"Concorrencia: {concurrency}")
     print(f"Arquivo JSON: {json_file}")
     print(f"URL: {url}")
+    clipython(url, requests, concurrency)
 
-if __name__ == "__main__":
+if __name__ == "__main__":  
     cli()
