@@ -1,6 +1,6 @@
 # Clipython
 
-CLI para teste de carga de requisições.
+CLI para teste de carga de requisições web.
 
 ## Instalação
 
